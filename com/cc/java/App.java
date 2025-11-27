@@ -7,7 +7,6 @@ import org.w3c.dom.css.Rect;
 public class App {
     
     public static void main(String[] args) {
-
         Rectangle rectangle = new Rectangle(10.0, 10.0);
         Circle circle = new Circle(5.0);
         Triangle triangle = new Triangle(10.0, 10.0);
@@ -24,13 +23,10 @@ public class App {
         output("Diff. Kreis-Dreieck: " + areaDiff(circle, triangle));
         output("Diff. Dreieck-Dreieck: " + areaDiff(triangle, triangle));
 
-
+        /* Das geht jetzt nicht mehr ... Abstraktion */ 
+        // Shape shape = new Shape();
     }
 
-    public static void output(String outputStr){
-        System.setOut(new PrintStream(System.out, true, java.nio.charset.StandardCharsets.UTF_8));
-        System.out.println(outputStr);
-    }
 
     /* 1. Iteration : ggf. 1000x überladen */ 
     // private static double areaDiff(Rectangle r, Triangle t){
@@ -40,11 +36,17 @@ public class App {
     //     return r.area() - c.area();
     // }
 
+
     /* 2. Iteration: Polymorphie - besser! */  
     private static double areaDiff(Shape s1, Shape s2){
         return s1.area() - s2.area();
     }
 
+
+    public static void output(String outputStr){
+        System.setOut(new PrintStream(System.out, true, java.nio.charset.StandardCharsets.UTF_8));
+        System.out.println(outputStr);
+    }
 
 }
 
